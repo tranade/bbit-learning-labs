@@ -29,7 +29,7 @@ class mqConsumer(mqConsumerInterface):
         self.channel.queue_declare(queue="Tech Lab Queue")
 
         # Create the exchange if not already present
-        exchange = self.channel.exchange_declare(exchange="Tech Lab Exchange", exchange_type="topic")
+        self.exchange = self.channel.exchange_declare(exchange="Tech Lab Exchange", exchange_type="topic")
 
         # Bind Binding Key to Queue on the exchange
         self.channel.queue_bind(
