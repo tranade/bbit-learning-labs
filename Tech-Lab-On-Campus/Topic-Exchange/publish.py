@@ -43,7 +43,7 @@ if __name__ == "__main__":
     #
     #                       WRITE CODE HERE!!!
     #
-    ticker = sys.argv[0]
-    price = sys.argv[1]
-    sector = sys.argv[2]
+    ticker = sys.argv[2]
+    price = sys.argv[3]
+    sector = sys.argv[4]
     sys.exit(main(ticker,price,sector))

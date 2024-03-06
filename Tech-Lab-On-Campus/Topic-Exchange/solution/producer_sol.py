@@ -18,7 +18,7 @@ class mqProducer(mqProducerInterface):
 
     def publishOrder(self, message: str):
         # Basic Publish to Exchange
-        self.channel.basic_publish(exchange="Tech Lab Exchange", routing_key="Tech Lab Key", body="hi Grace u r cool")
+        self.channel.basic_publish(exchange="Tech Lab Exchange", routing_key="Tech Lab Key", body=message)
         # Close Channel
         self.channel.close()
         # Close Connection

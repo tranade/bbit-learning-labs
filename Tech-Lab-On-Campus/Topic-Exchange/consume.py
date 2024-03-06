@@ -37,7 +37,7 @@ if __name__ == "__main__":
     #
     #                       WRITE CODE HERE!!!
     #
-    sector = sys.argv[0]
-    queue = sys.argv[1]
+    sector = sys.argv[2]
+    queue = sys.argv[3]
 
     sys.exit(main(sector,queue))
