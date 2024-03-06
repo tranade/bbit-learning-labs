@@ -14,11 +14,11 @@ class mqProducer(mqProducerInterface):
         # Establish Channel
         self.channel = self.connection.channel()
         # Create the exchange if not already present
-        self.exchange = self.channel.exchange_declare(exchange="Exchange Name")
+        self.exchange = self.channel.exchange_declare(exchange="Tech Lab Exchange")
 
     def publishOrder(self, message: str):
         # Basic Publish to Exchange
-        self.channel.basic_publish(exchange="Exchange Name", routing_key="Routing Key", body="Message")
+        self.channel.basic_publish(exchange="Tech Lab Exchange", routing_key="Tech Lab Key", body="hi Tanvi u r cool")
         # Close Channel
         self.channel.close()
         # Close Connection
