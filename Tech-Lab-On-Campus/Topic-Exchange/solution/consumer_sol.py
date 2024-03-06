@@ -26,20 +26,20 @@ class mqConsumer(mqConsumerInterface):
         self.channel = self.connection.channel()
 
         # Create Queue if not already present
-        self.channel.queue_declare(queue="Tech Lab Queue")
+        self.channel.queue_declare(queue=self.queue_name)
 
         # Create the exchange if not already present
-        self.exchange = self.channel.exchange_declare(exchange="Tech Lab Topic Exchange", exchange_type="topic")
+        self.exchange = self.channel.exchange_declare(exchange=self.exchange_name, exchange_type="topic")
 
         # Bind Binding Key to Queue on the exchange
         self.channel.queue_bind(
-            queue= "Tech Lab Queue",
-            routing_key= "Tech Lab Key",
-            exchange="Tech Lab Topic Exchange",
+            queue= self.queue_name,
+            routing_key= self.binding_key,
+            exchange=self.exchange_name,
         )
         # Set-up Callback function for receiving messages
         self.channel.basic_consume(
-            "Tech Lab Queue", self.on_message_callback, auto_ack=False
+            self.queue_name, self.on_message_callback, auto_ack=False
         )
         pass
 
